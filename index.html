@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Theme Toggle</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
+    <style>
+        :root{
+            --darktheme : #111;
+            --lightheme: #eee;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            transition: 0.3s ease;
+        }
+        body{
+            font-family: Poppins, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100dvh;
+            position: relative;
+        }
+
+        /*Main CSS Code*/
+        .cover{
+            background-color: var(--lightheme);
+            color: var(--darktheme);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .div-container{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            gap: 1em;
+            padding: 1em;
+            border: 1px solid hsla(0, 0%, 50%, 0.1);
+            border-radius: 1em;
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 0 20px hsla(0, 0%, 50%, 0.3);
+            font-weight: 600;
+            font-size: large;
+        }
+        .label{
+            width: 4em;
+            height: calc(4em / 2);
+            background: transparent;
+            border-radius: 10000px;
+            border: 2px solid var(--darktheme);
+            position: relative;
+        }
+        .label::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) scale(80%, 80%);
+            background-color: var(--darktheme);
+            height: 100%;
+            width: 50%;
+            border-radius: 50%;
+            transition: 0.3s ease;
+        }
+
+        /*Balls Styling*/
+        .balls{
+            opacity: 0.1;
+            position: fixed;
+            z-index: inherit;
+            border-radius: 50%;
+            background-color: hsl(0, 0%, 50%);
+            animation: linear infinite;
+        }
+        .b1{
+            width: 20dvw;
+            height: 20dvw;
+            animation-name: move3;
+            animation-duration: 15s;
+        }
+        .b2{
+            width: 40dvw;
+            height: 40dvw;
+            animation-name: move2;
+            animation-duration: 10s; 
+        }
+        .b3{
+            width: 60dvw;
+            height: 60dvw;  
+            animation-name: move1;
+            animation-duration: 20s;
+        }
+
+        /*Balls Animation*/
+        @keyframes move1 {
+            0%, 100%{
+                top: -30%;
+                left: -30%;
+            }
+            50%{
+                top: 100%;
+                left: 120%;
+            }
+        }
+        @keyframes move2 {
+            from{
+                top: -30%;
+                left: 120%;
+            }
+            to{
+                top: 100%;
+                left: -30%;
+            }
+        }
+        @keyframes move3 {
+            0%, 100%{
+                top: -30%;
+                left: 40%;
+            }
+            20%{
+                top: 100%;
+                left: -20%;
+            }
+            40%{
+                top: 50%;
+                left: 100%;
+            }
+            60%{
+                top: -20%;
+                left: -20%;
+            }
+            80%{
+                top: 80%;
+                left: 90%;
+            }
+        }
+
+        /*Toggle Function*/
+        #toggle{
+            display: none;
+        }
+        #toggle:checked ~ .cover{
+            background-color: var(--darktheme);
+            color: var(--lightheme);
+        }
+        #toggle:checked ~ .cover .div-container .label::before{
+            background-color: white;
+            left: 50%;
+        }
+        #toggle:checked ~ .cover .div-container .label{
+            background-color: blue;
+            border-color: blue;
+        }
+
+        /*Watermark*/
+        .watermark{
+            position: absolute;
+            bottom: 5%;
+            font-size: smaller;
+            font-weight: 300;
+            font-style: italic;
+            opacity: 0.5;
+        }
+        #toggle:checked ~ .watermark{
+            color: var(--lightheme);
+        }
+    </style>
+</head>
+<body>
+    <!--Balls-->
+    <div class="balls b1"></div>
+    <div class="balls b2"></div>
+    <div class="balls b3"></div>
+
+    <!--Main Code-->
+    <input type="checkbox" id="toggle">
+    <div class="cover">    
+        <div class="div-container">
+            <p>Dark Theme</p>
+            <label for="toggle" class="label"></label>
+        </div>
+    </div>
+
+    <!--Watermark-->
+    <p class="watermark">Prime Spark &copy; 2025</p>
+</body>
+</html>
