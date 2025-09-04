@@ -37,7 +37,7 @@ You can easily:
 - (Optional)Add your brand name in the watermark or the header or comment it out.
 
 ### Demo
-👉 [Live Demo](https://yourusername.github.io/image-preview-app/)
+👉 [Live Demo]([https://primespark001.github.io/Dark-Theme-Toggle-HTML-CSS-Only/])
 
 ## ⚠️ Disclaimer
 > This dark theme toggle is implemented using **only HTML and CSS**, without any JavaScript.
