@@ -36,8 +36,8 @@ You can easily:
 - Customize animation styles or speed in the `@keyframes` section.
 - (Optional)Add your brand name in the watermark or the header or comment it out.
 
-### Demo
-👉 [Live Demo]([https://primespark001.github.io/Dark-Theme-Toggle-HTML-CSS-Only/])
+## Demo
+👉 [Live Demo](https://primespark001.github.io/Dark-Theme-Toggle-HTML-CSS-Only/)
 
 ## ⚠️ Disclaimer
 > This dark theme toggle is implemented using **only HTML and CSS**, without any JavaScript.
